@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--JavaScript/003Router/index.html-->
+    <a href="#/home">home</a>
+    <a href="#/about">about</a>
+    <a href="#/news">news</a>
+    <div id="routerView">routerView</div>
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded',function (){
+        if(!location.hash){
+            location.hash = "#/home";
+            getContent('#/home');
+            return;
+        }
+        getContent();
+    })
+    window.addEventListener('hashchange',function () {
+        getContent();
+    })
+    function getContent(path){
+        const hashPath = location.hash;
+        const content = document.querySelector(`a[href="${path || hashPath}"]`).innerHTML;
+        routerView.innerHTML = content;
+    }
+</script>
+
+</html>

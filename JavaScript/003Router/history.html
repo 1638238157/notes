@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--JavaScript/003Router/index.html-->
+    <a href="/home">home</a>
+    <a href="/about">about</a>
+    <a href="/news">news</a>
+    <div id="routerView">routerView</div>
+</body>
+<script>
+    window.addEventListener('popstate', ()=>{
+        routerView.innerHTML = location.pathname.substring(1);
+    })
+    window.onload = () => {
+        let allA = document.querySelectorAll('a[href]');
+        if (allA?.length > 0) {
+            allA.forEach(element => {
+                const getAttributeHref = element.getAttribute('href').toLowerCase();
+                const homeContent = getAttributeHref === '/' || getAttributeHref === '/home';
+                if (homeContent) {
+                    setRouterViewContent(element.innerHTML);
+                }
+                element.addEventListener('click',function (e){
+                    e.preventDefault();
+                    history.pushState({},'',getAttributeHref);
+                    setRouterViewContent(element.innerHTML);
+                })
+            })
+        }
+        function setRouterViewContent(content){
+            routerView.innerHTML = content;
+        }
+    }
+</script>
+
+</html>
