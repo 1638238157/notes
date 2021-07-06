@@ -7,4 +7,4 @@
 
 ### 利用 input file 实现多长图片预览  位置：./JavaScript/002input_preview_image
 
-### Router 学习  位置：./JavaScript/003Router
+### Router 学习 里面包含「hash、history、location」  位置：./JavaScript/003Router
