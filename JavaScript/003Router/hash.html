@@ -16,6 +16,10 @@
     <div id="routerView">routerView</div>
 </body>
 <script>
+    /*
+        DOMContentLoaded 是在HTML文档被完全的加载和解析之后才会触发的事件，他并不需要等到（样式表、图像、子框架）加载完成之后再进行。
+        load 用于检测一个加载完全的页面
+    */ 
     window.addEventListener('DOMContentLoaded',function (){
         if(!location.hash){
             location.hash = "#/home";

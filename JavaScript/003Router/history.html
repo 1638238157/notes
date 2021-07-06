@@ -13,32 +13,53 @@
     <a href="/home">home</a>
     <a href="/about">about</a>
     <a href="/news">news</a>
-    <div id="routerView">routerView</div>
+    <div id="routerView"></div>
 </body>
 <script>
-    window.addEventListener('popstate', ()=>{
-        routerView.innerHTML = location.pathname.substring(1);
-    })
-    window.onload = () => {
-        let allA = document.querySelectorAll('a[href]');
-        if (allA?.length > 0) {
-            allA.forEach(element => {
-                const getAttributeHref = element.getAttribute('href').toLowerCase();
-                const homeContent = getAttributeHref === '/' || getAttributeHref === '/home';
-                if (homeContent) {
-                    setRouterViewContent(element.innerHTML);
-                }
-                element.addEventListener('click',function (e){
-                    e.preventDefault();
-                    history.pushState({},'',getAttributeHref);
-                    setRouterViewContent(element.innerHTML);
-                })
-            })
-        }
-        function setRouterViewContent(content){
-            routerView.innerHTML = content;
-        }
-    }
+    // window.addEventListener('popstate', ()=>{
+    //     routerView.innerHTML = location.pathname.substring(1);
+    // })
+    // window.onload = () => {
+    //     let allA = document.querySelectorAll('a[href]');
+    //     if (allA?.length > 0) {
+    //         allA.forEach(element => {
+    //             const getAttributeHref = element.getAttribute('href').toLowerCase();
+    //             const homeContent = getAttributeHref === '/' || getAttributeHref === '/home';
+    //             if (homeContent) {
+    //                 setRouterViewContent(element.innerHTML);
+    //             }
+    //             element.addEventListener('click',function (e){
+    //                 e.preventDefault();
+    //                 history.pushState({},'',getAttributeHref);
+    //                 setRouterViewContent(element.innerHTML);
+    //             })
+    //         })
+    //     }
+    //     function setRouterViewContent(content){
+    //         routerView.innerHTML = content;
+    //     }
+    // }
+    window.addEventListener('popstate',() => {
+        const pathname = location.pathname;
+        routerView.innerHTML = getContent(pathname);
+    });
+    window.addEventListener('DOMContentLoaded',() => {
+        routerView.innerHTML = getContent(location.pathname);
+        document.body.addEventListener('click',(e) => {
+            const {localName} = e.target;
+            if(localName === 'a'){
+                const {innerHTML,pathname} = e.target;
+                e.preventDefault();
+                history.pushState({},'',pathname);
+                routerView.innerHTML = innerHTML;
+            }
+        })
+    });
+    function getContent(pathname){
+        const label = document.querySelector(`a[href="${pathname}"]`);
+        if(!label) return 'routerView';
+        return label.innerHTML;
+    };
 </script>
 
 </html>
