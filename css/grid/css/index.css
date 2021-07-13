@@ -1,0 +1,32 @@
+.wrapper{
+    width: 600px;
+    display: grid;
+    /* display: inline-grid; */
+    /* 定义每一列的宽 */
+    /* grid-template-columns: 200px 200px 200px; */
+    /* 定义每一行的高 */
+    /* grid-template-rows: 100px 100px 100px; */
+    /* 重复函数 */
+    /* grid-template-columns: repeat(3, 200px); */
+    /* grid-template-columns: repeat(3, 200px 10px); */
+    /* 自动填充 */
+    /* grid-template-columns: repeat(auto-fill,200px); */
+    /* fr */
+    /* grid-template-columns: 100px 1fr 2fr; */
+    /* minmax */
+    grid-template-columns: minmax(100px,1fr) 1fr 2fr;
+    /* 行间距 */
+    /* row-gap: 20px; */
+    /* 列间距 */
+    /* column-gap: 20px; */
+    /* 上面二者组合 */
+    gap: 10px 20px;
+    /* 指定区域 */
+    grid-template-areas: 'a a a' 'b b b' 'c c c';
+    
+
+}
+.wrapper > div{
+    border: 2px solid rebeccapurple;
+    box-sizing: border-box;
+}
