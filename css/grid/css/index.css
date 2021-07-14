@@ -1,11 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .wrapper{
-    width: 600px;
+    width: 800px;
+    height: 800px;
+    border: 2px solid #eee;
     display: grid;
     /* display: inline-grid; */
     /* 定义每一列的宽 */
-    /* grid-template-columns: 200px 200px 200px; */
+    grid-template-columns: 200px 200px 200px;
     /* 定义每一行的高 */
-    /* grid-template-rows: 100px 100px 100px; */
+    grid-template-rows: 200px 200px 200px;
     /* 重复函数 */
     /* grid-template-columns: repeat(3, 200px); */
     /* grid-template-columns: repeat(3, 200px 10px); */
@@ -14,19 +20,34 @@
     /* fr */
     /* grid-template-columns: 100px 1fr 2fr; */
     /* minmax */
-    grid-template-columns: minmax(100px,1fr) 1fr 2fr;
+    /* grid-template-columns: minmax(100px,1fr) 1fr 2fr; */
     /* 行间距 */
     /* row-gap: 20px; */
     /* 列间距 */
     /* column-gap: 20px; */
     /* 上面二者组合 */
-    gap: 10px 20px;
+    /* gap: 10px 20px; */
     /* 指定区域 */
-    grid-template-areas: 'a a a' 'b b b' 'c c c';
-    
-
+    /* grid-template-areas: 'a a a' 'b b b' 'c c c'; */
+    /* 改变排列方式 */
+    /* grid-auto-flow: column dense; */
+    /* 设置单元格位置 */
+    /* align-items: center; */
+    /* justify-items: center; */
+    /* place-items: center start; */
+    /* 设置内容位置 */
+    /* justify-content: space-evenly; */
+    /* align-content: space-around; */
 }
 .wrapper > div{
     border: 2px solid rebeccapurple;
     box-sizing: border-box;
 }
+/* .wrapper > :nth-child(1){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.wrapper > :nth-child(2){
+    grid-column-start: 1;
+    grid-column-end: 3;  
+} */

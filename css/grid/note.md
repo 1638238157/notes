@@ -19,4 +19,27 @@ Flex布局是 「轴线布局」，只能指定“项目”针对轴线的位置
 >注意，区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为区域名-start，终止网格线自动命名为区域名-end。
 
 >比如，区域名为header，则起始位置的水平网格线和垂直网格线叫做header-start，终止位置的水平网格线和垂直网格线叫做header-end。
-- grid-auto-flow 改变顺序 默认值是row，“先行后列”。
+
+- grid-auto-flow 改变顺序 默认值是row，“先行后列”。 column “先列后行”。
+    - row dense
+    - column dense
+> dense 密集的  （尽量填满，不要出现空格）
+
+- justify-items: start | end | center | stretch; 属性设置单元格的水平位置。
+- align-items: 参数同上   设置单元格内容的垂直位置
+    - start 对齐单元格的起始边缘
+    - end 对齐单元格的结束边缘
+    - center 单元格内部居中
+    - stretch 拉抻，沾满单元格的整个宽度（默认值）；
+- place-items: <align-items> <justify-items>;
+
+- justify-content 整个内容区域在容器里面的水平位置
+- align-content 整个内容区域的垂直位置
+    - start 对齐容器的其实边框
+    - end 对齐容器的结束边框
+    - center 容器内部居中
+    - stretch 项目大小没有指定时，拉伸占据整个网格容器。
+    - space-around 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。
+    - space-between 项目与项目的间隔相等，项目与容器边框之间没有间隔。
+    - space-evenly 项目与项目的间隔相等，项目与容器边框之间也是同样的间隔
+- place-content: <align-content> <justify-content>;
