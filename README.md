@@ -13,4 +13,6 @@
 
 ### Router 学习 里面包含「hash、history、location」  位置：./JavaScript/003Router
 
-### 面向对象 学习 里面包含「hash、history、location」  位置：./JavaScript/004面向对象
+### 面向对象 学习   位置：./JavaScript/004面向对象
+
+### typescript 学习  位置：./JavaScript/004面向对象
