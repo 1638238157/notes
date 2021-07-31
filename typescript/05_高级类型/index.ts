@@ -49,6 +49,15 @@ b = 123
 //     pet.fly
 // }
 
+// 基于联合类型的条件类型分发
+/**
+ * 条件类型指的是T extends U ? X : Y，在执行这条语句的时候，如果T是一个联合类型A|B|C，事实上它做的是：(A extends U ? X : Y) | (B extends U ? X : Y) | (C extends U ? X : Y)，会在每个可以能的类型分支上分别进行判断，最后得到的也是一个联合类型。基于这个特性，就可以做一些方便的操作：
+ */
+// 移除属性值
+type Diff<T,U> = T extends U ? never : T;
+type T1 = Diff<'a' | 'b' | 'c', 'b' | 'd'>
+
+
 // typeof 类型保护
 function isNumber(x: any): x is number {
     return typeof x === "number";
