@@ -1,4 +1,18 @@
 // 交叉类型 （Intersection Types）
+interface IPerson{
+    name: string,
+    age: number
+}
+interface IStudent {
+    grade: number
+}
+
+const getBio = (user: IPerson & IStudent) => {
+    return `His name is ${user.name}, I am ${user.age} years old and a student of Grade ${user.grade}.`
+}
+
+getBio({name: 'Joi',age: 12,grade: 6});
+
 
 // 联合类型 使用（ | ）分割每个类型
 
